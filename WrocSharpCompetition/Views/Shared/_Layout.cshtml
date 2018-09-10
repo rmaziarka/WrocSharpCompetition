@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - WROC# Competition</title>
+    @Styles.Render("~/Content/css")
+
+    <style>
+        .navbar {
+            background: #0D109C;
+            color: white;
+        }
+
+        .navbar-inverse .navbar-nav > li > a {
+            color: white;
+        }
+
+        .navbar > .container .navbar-brand {
+            color: white;
+        }
+        .logo {
+            width: 300px
+        }
+        
+        @@media (max-width: 768px) {
+          .logo {
+              width: 250px;
+              margin-bottom: 10px;
+          }
+        }
+    </style>
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+<script>
+
+    document.addEventListener("DOMContentLoaded", function (event) {
+        $.ajaxSetup({ cache: false });
+    });
+</script>
+
+<div style="" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("WROC# Competition", "Index", "Home", new {area = ""}, new {@class = "navbar-brand"})
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                @if (this.User.IsInRole("Admin"))
+                {
+                    <li>@Html.ActionLink("Admin", "Index", "Admin")</li>
+                }
+
+                <li>@Html.ActionLink("About", "About", "Home")</li>
+                <li>@Html.ActionLink("Rules", "Rules", "Home")</li>
+                <li>@Html.ActionLink("See all results", "Results", "Home")</li>
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+    </div>
+</div>
+<div class="container body-content">
+    @RenderBody()
+    <hr/>
+    <footer>
+        <p>&copy; @DateTime.Now.Year - WROC# Competition</p>
+    </footer>
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)
+</body>
+</html>

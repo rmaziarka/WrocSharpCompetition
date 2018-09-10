@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@model WrocSharpCompetition.Models.Test
+
+<div class="jumbotron">
+    <h1><img class="logo" src="/Content/wroc-color.svg" /> Competition</h1>
+</div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h2>About</h2>
+            <p>
+                <b>How fast are you?</b><br />
+                The contest consists of <b>6 questions</b>.<br />
+                One question for every brake. <b>You have 20 minutes to answer.</b><br />
+                The fastest wins a book in <b>every brake</b>.<br />
+                You need to be able to search answers very quickly. The response time matters, so <b>the faster the better</b>.<br />
+            </p>
+            <p>
+                Be aware! For every question places from 1 to 30 are given points. In the final stage later on 6 questions who gets the <b>highest score wins the special award Microsoft Lumia 950 with Display Dock HD-500</b>.<br />
+                In case of tie the responses time are added together and the less the winner is. Everyone who doesn’t answer the question is charged of 20 minutes.
+            </p>
+            <p>
+                <a href="@Url.Action("Register", "Account")">Sign up</a> to win the contest!
+            </p>
+        </div>
+    </div>
